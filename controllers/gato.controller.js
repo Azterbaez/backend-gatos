@@ -1,6 +1,24 @@
 import db from "../firebase.js";
 import supabase from "../supabase.js";
 
+
+export const obtenerGatos = async (req, res) => {
+  try {
+    const snapshot = await db.collection("gatos").orderBy("fecha", "desc").get();
+    const gatos = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    res.status(200).json(gatos);
+  } catch (error) {
+    console.error("Error al obtener los gatos:", error);
+    res.status(500).json({
+      mensaje: "Error al obtener los gatos.",
+      error: error.message,
+    });
+  }
+};
+
 export const registrarGato = async (req, res) => {
   try {
     const { nombre, edad, peso, raza } = req.body || {};
@@ -68,6 +86,7 @@ export const registrarGato = async (req, res) => {
       id: docRef.id,
       imagenUrl,
     });
+    
 
   } catch (error) {
     console.error("Error:", error);
@@ -77,4 +96,5 @@ export const registrarGato = async (req, res) => {
       error: error.message,
     });
   }
+  
 };
