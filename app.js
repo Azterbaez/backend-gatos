@@ -1,4 +1,9 @@
 import express from "express";
+
+
+import climaRoutes from "./routes/clima.routes.js";
+
+
 import cors from "cors";  //Para que el frontend pueda llamar
 import gatoRoutes from "./routes/gato.routes.js";
 const app = express();
@@ -10,6 +15,7 @@ app.use(express.json());
 
 // Rutas
 app.use(gatoRoutes);
+app.use(climaRoutes);
 
 // 404
 app.use((req, res) => {
