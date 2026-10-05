@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { registrarGato, obtenerGatos, actualizarGato, eliminarGato, buscarGatos } from "../controllers/gato.controller.js";
+import { registrarGato, obtenerGatos, actualizarGato, buscarGatos } from "../controllers/gato.controller.js";
 
 const router = express.Router();
 
