@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { registrarGato, obtenerGatos, actualizarGato } from "../controllers/gato.controller.js";
+import { registrarGato, obtenerGatos, actualizarGato, eliminarGato, buscarGatos } from "../controllers/gato.controller.js";
 
 const router = express.Router();
 
@@ -20,6 +20,8 @@ router.post(
 router.put("/gato/:id", upload.single("imagen"), actualizarGato);
 
 router.get("/gatos", obtenerGatos);
+
+router.get("/gatos/buscar", buscarGatos);
 
 export default router;
 
