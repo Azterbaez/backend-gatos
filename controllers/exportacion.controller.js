@@ -1,5 +1,5 @@
 import ExcelJS from "exceljs";
-import { calcularEstadisticas } from "./stats.controller.js";
+import { calcularEstadisticas } from "./estadisticas.controller";
 
 export const exportarEstadisticasExcel = async (req, res) => {
   try {
