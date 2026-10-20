@@ -19,6 +19,8 @@ router.get("/estadisticas/excel", exportarEstadisticasExcel);
 // Descarga el PDF
 router.get("/estadisticas/pdf", exportarEstadisticasPDF);
 
+router.get("/estadisticas/csv", exportarGatosCSV);
+
 
 export default router;
 
