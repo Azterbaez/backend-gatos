@@ -3,6 +3,8 @@ import { obtenerEstadisticas } from "../controllers/estadisticas.controller.js";
 import { exportarEstadisticasExcel } from "../controllers/exportacion.controller.js";
 import { capturarInfoSolicitud } from "../middlewares/auditoria.js";
 
+// excely pdfimport
+import { exportarEstadisticasExcel, exportarEstadisticasPDF} from "../controllers/exportacion.controller.js";
 
 const router = express.Router();
 
@@ -13,6 +15,10 @@ router.get("/estadisticas", obtenerEstadisticas);
 
 // Descarga el archivo Excel
 router.get("/estadisticas/excel", exportarEstadisticasExcel);
+
+// Descarga el PDF
+router.get("/estadisticas/pdf", exportarEstadisticasPDF);
+
 
 export default router;
 
